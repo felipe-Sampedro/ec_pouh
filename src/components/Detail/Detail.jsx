@@ -1,0 +1,1 @@
+<ItemCount stock={12} initial={1}/>
