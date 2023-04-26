@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import ItemsList from '../ItemList/ItemsList'
-import Item from '../Item/Item'
-
-
-const data = [
-  {name:"Camiseta Algodon", category:"Camiseta",price:65000,imagen:"https://picsum.photos/175/200"},
-  {name:"Pantaloneta Algodon", category:"Pantaloneta",price:75000,imagen:"https://picsum.photos/175/200"},
-  {name:"Medias Algodon", category:"Medias",price:22000,imagen:"https://picsum.photos/175/200"},
-]
+import {data} from '../../config/data'
+import Detail from '../Detail/Detail'
 
 const ItemListContainer = ({greetings}) => {
   const [catalogy,setCatalogy]= useState([])
@@ -18,7 +12,7 @@ const ItemListContainer = ({greetings}) => {
     const products = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(data)
-      },5000);
+      },2000);
     })
 
     products
@@ -32,6 +26,7 @@ const ItemListContainer = ({greetings}) => {
     <div className='vh-100'>
         {greetings}
         <ItemsList catalogy={catalogy}/>
+        <Detail/>
     </div>
   )
 }

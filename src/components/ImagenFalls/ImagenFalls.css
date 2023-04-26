@@ -1,0 +1,17 @@
+
+.thumbnail:hover{
+    opacity: 0.4;
+    /* transform: scale(1.1); */
+
+}
+
+
+.sustituida-modificada:hover {
+    box-sizing:border-box;
+    display:block;
+    width: 450px;     
+    height:700px;       
+    padding-left:500px; 
+    background: url(../../assets/images/logo.jpg);
+    overflow:hidden;
+}

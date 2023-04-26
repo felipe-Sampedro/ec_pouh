@@ -1,11 +1,11 @@
 import React from 'react'
 import './Item.css'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
+import { Link, useParams } from 'react-router-dom'
 
-// const Item = ({name,category,price}) => {
-const Item = ({name,category,price,imagen}) => {
-    console.log(name);
-    console.log(category);
-    console.log(price);
+
+const Item = ({id,name,category,price,imagen}) => {
+
     return (
         <div>
             <div className="card">
@@ -13,6 +13,10 @@ const Item = ({name,category,price,imagen}) => {
                 <span className="title">{name}</span>
                 <span className="category">{category}</span>
                 <span className="price">{price}</span>
+                <Link to ={`/ItemDetail/`+id}>
+                    <button className='btn'>Detalle</button>
+                </Link>
+
             </div>
         </div>
     )
