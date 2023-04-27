@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import './ItemCount.css'
 import { Link } from 'react-router-dom'
+import { logDOM } from '@testing-library/react'
 
-const ItemCount = ({ stock, initial, onAdd, purchase }) => {
+const ItemCount = ({items, stock, initial, onAdd, purchase }) => {
 
     const [quantity, setQuantity] = useState(initial)
+
     function add() {
         if (quantity < stock) {
             setQuantity(quantity + 1)
@@ -33,7 +35,7 @@ const ItemCount = ({ stock, initial, onAdd, purchase }) => {
                         <button onClick={add}>+</button>
                     </div>
                     <div>
-                        <button onClick={onAdd} className="btn m-2"> Añade al Carrito </button>
+                        <button onClick={()=>onAdd(items,quantity)} className="btn m-2"> Añade al Carrito </button>
                     </div>
                 </div>
             }

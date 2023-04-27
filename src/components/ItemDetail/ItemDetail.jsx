@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ImagenFalls from '../ImagenFalls/ImagenFalls'
 import { useParams } from 'react-router-dom'
 import { logDOM } from '@testing-library/react'
 import ItemCount from '../ItemCount/ItemCount'
+import { GlobalContext } from '../Context/CartContext'
 
 const ItemDetail = ({ items }) => {
+    const { cart, addItemToCart,setAmount } = useContext(GlobalContext)
+    const [ref, setRef] = useState(items)
+    const [purchase, setPurchase] = useState(false)
 
-    const[purchase,setPurchase]=useState(false)
-    function handleOnAdd(qtyAdd) {
-        console.log(qtyAdd);
-        console.log(`hemos recibido el evento de ITEM COUNT, compra añadida al carrito x ${qtyAdd}`);
+
+    function handleOnAdd(product,qtyAdd) {
+        console.log(`hemos recibido el evento de ITEM COUNT, compra añadida al carrito x ${qtyAdd} unidades`);
         setPurchase(true)
-
+        setAmount(qtyAdd)
+        addItemToCart(product)
     }
 
     return (
@@ -22,7 +26,6 @@ const ItemDetail = ({ items }) => {
                     <img className='rounded sustituida-modificada' src={items.imagen} alt="" />
                 </div>
             </div>
-
             <div>
                 <h1>DETALLE PRODUCTO</h1>
                 <div>
@@ -34,12 +37,9 @@ const ItemDetail = ({ items }) => {
                     <p className='' style={{ width: '375px' }}>{items.description}</p>
                 </div>
                 <div>
-                    <ItemCount  stock={items.stock} initial={1} onAdd={handleOnAdd} purchase={purchase} />
+                    <ItemCount items={items} stock={items.stock} initial={1} onAdd={handleOnAdd} purchase={purchase} />
                 </div>
             </div>
-
-
-
         </div>
 
 

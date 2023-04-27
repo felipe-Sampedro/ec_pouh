@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../../assets/images/logo.jpg'
 import CartWidget from '../CartWidget/CartWidget'
 import PreNavbar from '../PreNavbar/PreNavbar'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -43,7 +44,9 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <div className='mx-auto'>
-                            <img src={logo} className='me-5' style={{"width":120}} alt="" />
+                            <Link to='/'>
+                                <img src={logo} className='me-5' style={{"width":120}} alt="" />
+                            </Link>
                         </div>
                         <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

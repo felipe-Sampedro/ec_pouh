@@ -4,6 +4,7 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 import { Link, useParams } from 'react-router-dom'
 
 
+
 const Item = ({id,name,category,price,imagen}) => {
 
     return (
