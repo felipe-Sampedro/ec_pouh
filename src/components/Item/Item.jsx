@@ -9,7 +9,7 @@ const Item = ({id,name,category,price,imagen}) => {
 
     return (
         <div>
-            <div className="card">
+            <div className="card my-4">
                 <div className="image"><span className="text"></span></div>
                 <span className="title">{name}</span>
                 <span className="category">{category}</span>

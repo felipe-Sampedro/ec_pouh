@@ -6,7 +6,7 @@ import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailCon
 import ItemDetail from '../components/ItemDetail/ItemDetail'
 import Error from '../views/Error'
 import ItemListContainer from '../components/ItemListContainer/ItemListContainer'
-import Cart from '../components/Carousel/Cart/Cart'
+import Cart from '../components/Cart/Cart'
 
 const Rutas = () => {
   return (
@@ -15,6 +15,7 @@ const Rutas = () => {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<ItemListContainer />} />
+            <Route path='/ItemListContainer/:filt' element={<ItemListContainer />} />
             <Route path='/ItemDetail/:id' element={<ItemDetailContainer />} />
             <Route path='/Cart' element={<Cart />} />
           </Route>

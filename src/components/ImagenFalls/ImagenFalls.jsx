@@ -1,21 +1,26 @@
 import React from 'react'
 import './ImagenFalls.css'
+import ReactDOM from 'react-dom/client';
 
 const ImagenFalls = ({ waters }) => {
+
+
+  function handleMouseOver(e) {
+    const imgMain = document.getElementById('mainImg')
+    const imgMainSrc = imgMain.attributes.src.value
+    const thumbNailImg = e.target.src
+    imgMain.setAttribute('src',thumbNailImg)
+  }
+
   return (
     <>
-      {waters ? (
       <div className='d-flex flex-column mx-3'>
-        <img className="thumbnail rounded border border-black mb-3" src={waters[0]} alt="" />
-        <img className="thumbnail rounded border border-black mb-3"  src={waters[1]} alt="" />
-        <img className="thumbnail rounded border border-black mb-3"  src={waters[2]} alt="" />
-        <img className="thumbnail rounded border border-black mb-3"  src={waters[3]} alt="" />
-        <img className="thumbnail rounded border border-black mb-3"  src={waters[4]} alt="" />
+        {waters
+          ? waters.map((w,index) => <img key={index} onMouseOver={handleMouseOver} className={`thumbnail img${index} rounded border border-black mb-3`} src={w} alt="" />)
+          : <h2>Cargando...</h2>
+        }
       </div>
-      ) : <h2>Cargando....</h2>}
-
     </>
   )
 }
-
 export default ImagenFalls

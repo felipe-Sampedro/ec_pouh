@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './ItemCount.css'
 import { Link } from 'react-router-dom'
-import { logDOM } from '@testing-library/react'
+import { GlobalContext } from '../Context/CartContext'
 
-const ItemCount = ({items, stock, initial, onAdd, purchase }) => {
+const ItemCount = ({ stock, initial, onAdd, purchase }) => {
 
     const [quantity, setQuantity] = useState(initial)
+    const { itemsGlobal } = useContext(GlobalContext)
 
     function add() {
         if (quantity < stock) {
@@ -19,15 +20,17 @@ const ItemCount = ({items, stock, initial, onAdd, purchase }) => {
     }
     return (
         <div className='d-flex justify-content-center'>
-            {purchase
+            {/* {purchase
                 ?
                 <div className='d-flex flex-column'>
                     <Link to='/Cart/'>
                         <button className="btn btn-success m-2"> Ver Carrito </button>
                     </Link>
-                    <button className="btn btn-primary m-2"> Seguir Comprando </button>
+                    <Link to='/ItemListContainer'>
+                        <button className="btn btn-primary m-2"> Seguir Comprando </button>
+                    </Link>
                 </div>
-                :
+                : */}
                 <div>
                     <div className='d-flex justify-content-center'>
                         <button onClick={subtrat}>-</button>
@@ -35,10 +38,10 @@ const ItemCount = ({items, stock, initial, onAdd, purchase }) => {
                         <button onClick={add}>+</button>
                     </div>
                     <div>
-                        <button onClick={()=>onAdd(items,quantity)} className="btn m-2"> Añade al Carrito </button>
+                        <button onClick={() => onAdd(itemsGlobal, quantity)} className="btne m-2"> Añade al Carrito </button>
                     </div>
                 </div>
-            }
+            {/* } */}
         </div>
     )
 }
