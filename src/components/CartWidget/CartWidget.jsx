@@ -15,7 +15,8 @@ const CartWidget = () => {
       <Link to='/Cart'>
         <FontAwesomeIcon icon={faCartShopping} size="2x" color="black" />
       </Link>
-      <div className="qty-display">{totalPurchase}</div>
+      {/* <div className="qty-display">{totalPurchase}</div> */}
+      <div className={totalPurchase>1?'qty-display2':'qty-display'}>{totalPurchase}</div>
     </div>
   )
 }

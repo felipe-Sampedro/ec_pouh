@@ -42,10 +42,10 @@ const ItemDetail = ({ items }) => {
                             <p className='' style={{ width: '375px' }}>{items.description}</p>
                         </div>
                         {isInCart(items.id)
-                            ? <>
-                                <Link to={'/Cart'}><button className='btn btn-succes'>Ver Carrito</button></Link>
+                            ? <div className='d-flex flex-column justify-content-center align-items-center'>
+                                <Link to={'/Cart'}><button className='btn btn-succes m-2'>Ver Carrito</button></Link>
                                 <Link to='/'><button className="btn btn-primary m-2"> Seguir Comprando </button></Link>
-                            </>
+                            </div>
                             : <div>
                                 {/* <ItemCount stock={items.stock} initial={1} onAdd={handleOnAdd} purchase={purchase} /> */}
                                 <ItemCount stock={items.stock} initial={1} onAdd={handleOnAdd} />

@@ -16,7 +16,7 @@ const CartContext = ({ children }) => {
     }
 
     function removeItem(itemId,qty,coin) {
-        const filter = cart.filter(e=>e.id !== +itemId)
+        const filter = cart.filter(e=>e.id !== itemId)
         setCart(filter)
         setTotalPurchase(prev => prev - qty)
         setAmount(prev => prev - (coin*qty))
@@ -24,11 +24,11 @@ const CartContext = ({ children }) => {
 
     function clear() {
         setCart([])
-        // setTotalPurchase(0)
+        setTotalPurchase(0)
     }
 
     function isInCart(id) {
-        return cart.some(e=>e.id === +id)
+        return cart.some(e=>e.id === id)
     }
 
     return (

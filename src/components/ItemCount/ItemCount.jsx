@@ -33,12 +33,12 @@ const ItemCount = ({ stock, initial, onAdd, purchase }) => {
                 : */}
                 <div>
                     <div className='d-flex justify-content-center'>
-                        <button onClick={subtrat}>-</button>
+                        <button onClick={subtrat} className='btn'>-</button>
                         <input className='text-center' type="number" value={quantity} />
-                        <button onClick={add}>+</button>
+                        <button onClick={add} className='btn'>+</button>
                     </div>
-                    <div>
-                        <button onClick={() => onAdd(itemsGlobal, quantity)} className="btne m-2"> Añade al Carrito </button>
+                    <div className='d-flex justify-content-center'>
+                        <button onClick={() => onAdd(itemsGlobal, quantity)} className="btn m-2"> Añade al Carrito </button>
                     </div>
                 </div>
             {/* } */}

@@ -1,3 +1,8 @@
+.thumbnail{
+    width: 80px;
+    height: 80px;
+}
+
 
 .thumbnail:hover{
     opacity: 0.4;
@@ -5,13 +10,12 @@
 
 }
 
-
-.sustituida-modificada:hover {
+/* .sustituida-modificada:hover {
     box-sizing:border-box;
-    display:block;
+    display:block; 
     width: 450px;     
     height:700px;       
     padding-left:500px; 
     background: url(../../assets/images/logo.jpg);
     overflow:hidden;
-}
+} */

@@ -4,49 +4,55 @@ import { useParams } from 'react-router-dom'
 import { data } from '../../config/data'
 import db from '../../service/firebase'
 import { collection, getDocs } from 'firebase/firestore'
+import useFirebase from '../../hooks/useFirebase'
 
 const ItemDetailContainer = () => {
-    const [items, setItems] = useState([])
-    const { id } = useParams()
-    // const product = data.find((p) => p.id === +id)
+  const [items, setItems] = useState([])
+  const { id } = useParams()
+  // const product = data.find((p) => p.id === +id)
 
-    async function getData() {
-        const col = collection(db, 'products')
-        try {
-          const rawData = await getDocs(col)
-          const finalData = rawData.docs.map(r => r = { id: r.id, ...r.data() })
-          // console.log(finalData);
-          const product = finalData.find((p) => p.id === id)
-          setItems(product)
-        } catch (error) {
-          console.log(error);
-        }
-      }
+  const { getById, product } = useFirebase()
 
-    // async function getItem() {
-    //     const data = new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             resolve(product)
-    //         }, 1000);
-    //     })
-    //     data
-    //         .then((res) => setItems(res))
-    //         .catch((err) => console.log(err))
-    // }
+  // async function getData() {
+  //   const col = collection(db, 'products')
+  //   try {
+  //     const rawData = await getDocs(col)
+  //     const finalData = rawData.docs.map(r => r = { id: r.id, ...r.data() })
+  //     const product = finalData.find((p) => p.id === id)
+  //     setItems(product)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-    useEffect(() => {
-        // getItem()
-        getData()
-        return () => {
+  // async function getItem() {
+  //     const data = new Promise((resolve, reject) => {
+  //         setTimeout(() => {
+  //             resolve(product)
+  //         }, 1000);
+  //     })
+  //     data
+  //         .then((res) => setItems(res))
+  //         .catch((err) => console.log(err))
+  // }
 
-        }
-    }, [])
+  useEffect(() => {
+    // getItem()
+    // getData()
+    getById(id)
 
-    return (
-        <div>
-            {items ? <ItemDetail items={items} /> : <h1>Cargando...</h1>}
-        </div>
-    )
+
+    return () => {
+
+    }
+  }, [])
+
+  return (
+    <div>
+      {/* {items ? <ItemDetail items={items} /> : <h1>Cargando...</h1>} */}
+      {items ? <ItemDetail items={product} /> : <h1>Cargando...</h1>}
+    </div>
+  )
 }
 
 export default ItemDetailContainer
