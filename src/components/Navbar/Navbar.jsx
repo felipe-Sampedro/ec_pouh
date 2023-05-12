@@ -3,6 +3,8 @@ import logo from '../../assets/images/logo.jpg'
 import CartWidget from '../CartWidget/CartWidget'
 import PreNavbar from '../PreNavbar/PreNavbar'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
     return (
@@ -51,7 +53,8 @@ const Navbar = () => {
                     </div>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-primary" type="submit">Search</button>
+                        {/* <button className="btn btn-outline-primary" type="submit">Search</button> */}
+                        <FontAwesomeIcon icon={faMagnifyingGlass} size="2x" color= "black" />
                     </form>
                     <CartWidget />
                 </div>

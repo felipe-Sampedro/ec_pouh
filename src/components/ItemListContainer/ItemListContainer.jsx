@@ -14,6 +14,7 @@ const ItemListContainer = () => {
   const sail = data.filter(e => e.segment === filt)
   const { getAllData,products } = useFirebase()
 
+  console.log(filt);
 
   // async function getData() {
   //   const col = collection(db, 'products')
@@ -32,7 +33,7 @@ const ItemListContainer = () => {
     // getData()
     return () => {
      }
-  }, [filt])
+  }, [products])
 
   return (
     <div className=''>

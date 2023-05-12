@@ -1,18 +1,18 @@
 .card {
     position: relative;
     /* width: 11.875em; */
-    width: 21.875em;
+    /* width: 21.875em; */
     /* height: 16.5em; */
-    height: 26.5625em;
+    /* height: 26.5625em; */
     box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: all 120ms;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     background: #fff;
-    padding: 0.5em;
-    padding-bottom: 3.4em;
+    /* padding: 0.5em; */
+    /* padding-bottom: 3.4em; */
   }
   
   /* .card::after {
@@ -34,10 +34,10 @@
   
   .card .title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.9em;
-    position: absolute;
-    left: 0.625em;
-    bottom: 1.875em;
+    font-size: 1.5em;
+    /* position: absolute; */
+    /* left: 0.625em;
+    bottom: 1.875em; */
     font-weight: 400;
     color: #000;
   }
@@ -45,9 +45,9 @@
   .card .category {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9em;
-    position: absolute;
-    left: 0.625em;
-    bottom: 1.875em;
+    /* position: absolute; */
+    /* left: 0.625em;
+    bottom: 1.875em; */
     font-weight: 400;
     color: #000;
   }
@@ -56,9 +56,9 @@
   .card .price {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 0.9em;
-    position: absolute;
-    left: 0.625em;
-    bottom: 0.625em;
+    /* position: absolute; */
+    /* left: 0.625em;
+    bottom: 0.625em; */
     color: #000;
   }
   

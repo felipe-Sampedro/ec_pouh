@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../Context/CartContext'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Form from '../Form/Form'
 
 
@@ -18,21 +20,24 @@ const Cart = () => {
             <div key={index} className='d-flex justify-content-center m-2 w-100'>
               <div  className='d-flex justify-content-center w-100'>
                 <div>
-                  <img src={e.imagen} style={{ width: "240px", height: "240px" }} alt="" />
+                  <img src={e.imagen} style={{ width: "150px", height: "150px" }} alt="" />
                 </div>
-                <div className='d-flex flex-column justify-content-center w-50 p-2'>
+                {/* <div className='d-flex flex-column justify-content-center w-50 p-2'> */}
+                <div className='d-flex flex-column justify-content-center p-2'style={{ width: "250px"}}>
                   <div>
-                    <h4>{e.name}</h4>
+                    <h3>{e.name}</h3>
                     <h6>{e.category}</h6>
                     <h4>{e.price}</h4>
                     <h4>{e.purchase}</h4>
-                    <h4>Total compra</h4>
-                    <h4>{parseInt(e.purchase) * parseInt(e.price)}</h4>
+                    {/* <h4>Total compra</h4>
+                    <h4>{parseInt(e.purchase) * parseInt(e.price)}</h4> */}
                   </div>
-                  <div className='d-flex justify-content-center'>
-                    <button onClick={() => removeItem(e.id, e.purchase, e.price)} className='btn btn-warning'>Borrar Item</button>
-                  </div>
+
                 </div>
+                <div className='d-flex justify-content-center align-items-center'>
+                    {/* <button onClick={() => removeItem(e.id, e.purchase, e.price)} className='btn btn-warning'>Borrar Item</button> */}
+                    <FontAwesomeIcon onClick={() => removeItem(e.id, e.purchase, e.price)} icon={faTrashCan} size="2x" color="black"  />
+                  </div>
               </div>
             </div>
 
